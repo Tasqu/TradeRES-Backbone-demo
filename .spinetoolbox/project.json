@@ -304,7 +304,6 @@
                         "scenario_filter": [
                             "base",
                             "europe_low_ev",
-                            "fHigh_fHigh",
                             "fHigh_sLow",
                             "fLow_sHigh",
                             "fLow_sLow",
@@ -411,6 +410,28 @@
                 "to": [
                     "BB_Spine_DB_direct",
                     "right"
+                ]
+            },
+            {
+                "name": "from Backbone_building_input to Merge_building_data",
+                "from": [
+                    "Backbone_building_input",
+                    "left"
+                ],
+                "to": [
+                    "Merge_building_data",
+                    "right"
+                ]
+            },
+            {
+                "name": "from Merge_building_data to BB_Spine_DB_direct",
+                "from": [
+                    "Merge_building_data",
+                    "left"
+                ],
+                "to": [
+                    "BB_Spine_DB_direct",
+                    "bottom"
                 ]
             }
         ],
@@ -729,6 +750,29 @@
                     true
                 ]
             ]
+        },
+        "Backbone_building_input": {
+            "type": "Data Store",
+            "description": "Building input for backbone",
+            "x": 498.54034349863286,
+            "y": 351.4613915852431,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/backbone_building_input/Building_input_data.sqlite"
+                }
+            }
+        },
+        "Merge_building_data": {
+            "type": "Merger",
+            "description": "Merge building data to backbone inputs",
+            "x": 343.8209265507812,
+            "y": 347.6411590680122,
+            "cancel_on_error": false
         }
     }
 }
